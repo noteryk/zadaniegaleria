@@ -1,0 +1,26 @@
+/**
+ * ****************************************************************************************
+ * Nazwa funkcji: fetchImages
+ * Opis: Pobiera obrazy z API Pixabay na podstawie wybranych kategorii (auta, kwiaty, zwierzęta).
+ *       Dla każdej kategorii wysyłane jest osobne żądanie do API, a następnie wyniki są łączone
+ *       w jedną tablicę i zapisywane w stanie komponentu.
+ * Parametry: Brak
+ * Zwracany typ: Promise<void> - funkcja nie zwraca bezpośrednio żadnej wartości,
+ *               ale aktualizuje stan `images` poprzez `setImages()`.
+ * Autor: 0000000000
+ * ****************************************************************************************
+ */
+const fetchImages = async () => {
+  const requests = selectedTypes.map(category =>
+    fetch(`https://pixabay.com/api/?key=${key}&q=${category}&image_type=photo`)
+      .then(response => response.json())
+      .then(data => data.hits.map((image: { webformatURL: string; tags: string; downloads: number }) => ({
+        url: image.webformatURL,
+        alt: image.tags,
+        likes: image.downloads
+      })))
+  );
+
+  const imagesArray = await Promise.all(requests);
+  setImages(imagesArray.flat());
+};

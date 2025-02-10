@@ -1,0 +1,114 @@
+/* Ogólne ustawienia */
+body {
+  background-color: #ffffff; /* Białe tło */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Kontener główny */
+.Container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centrowanie zdjęć */
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Pojedynczy blok zdjęcia */
+.Container > div {
+  background: #f8f9fa; /* Jasnoszare tło */
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  width: 280px; /* Większe zdjęcia */
+}
+
+/* Styl zdjęć */
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+img:hover {
+  transform: scale(1.05);
+}
+
+/* Nagłówek liczby pobrań */
+p {
+  font-size: 1.2em; /* Większa czcionka */
+  font-weight: bold;
+  color: #333;
+}
+
+/* Zielony przycisk Pobierz */
+button {
+  background-color: #28a745; /* Zielony kolor */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #218838; /* Ciemniejszy zielony */
+}
+
+/* Checkboxy */
+input[type="checkbox"] {
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  border: 2px solid #28a745;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+}
+
+input[type="checkbox"]:checked {
+  background-color: #28a745;
+}
+
+input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  width: 8px;
+  height: 14px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* Nagłówek */
+h1 {
+  text-align: center;
+  color: #333;
+  font-size: 2.5em;
+  margin-top: 20px;
+}
+
+/* Stylizacja checkboxów i etykiet */
+.checkboxes {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px;
+}
+
+label {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+
